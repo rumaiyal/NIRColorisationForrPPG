@@ -6,7 +6,7 @@
 # CycleGAN and pix2pix in PyTorch
 
 
-We provide PyTorch implementations for both paired frame-to-frame (pix2pix and supervised cyclegan) and paired frame sequence-to-frame sequence (supervised cyclegan) translation for 10bit NIR pgm files to 8 bit RGB png files.
+We provide PyTorch implementations for both paired frame-to-frame (pix2pix and supervised cyclegan) and paired frame sequence-to-frame sequence (supervised cyclegan) translation for 10bit NIR pgm files to 8 bit RGB png files for follow on rPPG extraction.
 
 The code was adapted from the source by [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesungp)
 
