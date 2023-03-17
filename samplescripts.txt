@@ -1,0 +1,18 @@
+#Pix to pix, 1 to 3 ch, individual image colorisation; not sequence colorisation
+python train.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/   --model nir12bitnchtorgb8bit3nchhumanfacetensor --dataset_mode nir12bit1chtorgb8bit3chhumanfacetensor --name pix2pix_nir12bit1chtorgb8bit3chwithrotshiftaugnodeltatensor_subject_60cm --direction AtoB  --input_nc 1 --output_nc 3 --load_size 256 --preprocess crop --crop_size 256 --batch_size 10 --gpu_ids 2 
+
+python test.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/   --model nir12bitnchtorgb8bit3nchhumanfacetensor --dataset_mode  nir12bit1chtorgb8bit3chhumanfacetensor --name pix2pix_nir12bit1chtorgb8bit3chwithrotshiftaugnodeltatensor_subject_60cm --direction AtoB  --input_nc 1 --output_nc 3  --load_size 256 --preprocess none_nobasechg  --num_test 12411 --gpu_ids 2 
+
+#Cyclegan with paired loss, 1 to 3ch, individual image colorisation; not sequence
+python train.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/  --model cycle_ganincpairedloss  --dataset_mode nir12bit1chtorgb8bit3chhumanfacetensor --name cycleganpairedloss_nir12bit1chtorgb8bit3chwithrotshiftaugnodeltatensor_subject_60cm  --direction AtoB --lambda_identity 0.0  --input_nc 1 --output_nc 3 --load_size 256 --preprocess crop --crop_size 256 --batch_size 10   --gpu_ids 2 
+
+python test.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/  --model cycle_ganincpairedloss --dataset_mode nir12bit1chtorgb8bit3chhumanfacetensor --name cycleganpairedloss_nir12bit1chtorgb8bit3chwithrotshiftaugnodeltatensor_subject_60cm   --direction AtoB --input_nc 1 --output_nc 3 --load_size 256 --preprocess none_nobasechg --num_test 12411 --gpu_ids 2
+
+#Cyclegan with paired loss, 3 to 9ch, image sequence colorisation
+python train.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/   --model cycle_ganincpairedloss --dataset_mode nir12bit3chtorgb8bit9chnodeltahumanfacetensor --name cycleganpairedloss_nir12bit3chtorgb8bit9chwithrotshiftaugnodeltatensor_subject_60cm --direction AtoB --lambda_identity 0.0  --input_nc 3 --output_nc 9 --load_size 256 --preprocess crop --crop_size 256 --batch_size 10 --gpu_ids 2 
+
+python test.py --dataroot ./datasets/paireddata_subject_60cm/NIRbgremoved/   --model cycle_ganincpairedloss --dataset_mode nir12bit3chtorgb8bit9chnodeltahumanfacetensor --name cycleganpairedloss_nir12bit3chtorgb8bit9chwithrotshiftaugnodeltatensor_subject_60cm --direction AtoB   --input_nc 3 --output_nc 9 --load_size 256 --preprocess none_nobasechg --num_test 12411 --gpu_ids 2
+
+
+
+
